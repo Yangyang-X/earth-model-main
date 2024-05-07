@@ -1,9 +1,10 @@
 import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
+import earcut from "https://cdn.jsdelivr.net/npm/earcut@2.2.4/+esm";
 
 // Array to keep track of previous highlighted polygons
 const previousPolygons = [];
 
-// Function to convert GeoJSON to 3D polygon meshes
+// Function to convert GeoJSON to 3D polygon meshes using Earcut
 function geoJsonTo3DMesh(geoJson, baseRadius, color) {
   if (!geoJson || !geoJson.features) {
     console.error("Invalid GeoJSON data:", geoJson);
@@ -17,6 +18,7 @@ function geoJsonTo3DMesh(geoJson, baseRadius, color) {
       feature.geometry.coordinates.forEach((polygon, polyIndex) => {
         polygon.forEach((ring, ringIndex) => {
           const vertices = [];
+          const ringIndices = [];
 
           if (ring && Array.isArray(ring)) {
             // Ensure the polygon is closed by repeating the first coordinate pair
@@ -31,7 +33,7 @@ function geoJsonTo3DMesh(geoJson, baseRadius, color) {
                 return;
               }
 
-              const [x, y, z] = findPosition(lat, lng, baseRadius * 1.02);
+              const [x, y, z] = findPosition(lat, lng, baseRadius * 1.01);
 
               if (isNaN(x) || isNaN(y) || isNaN(z)) {
                 console.error(
@@ -41,15 +43,15 @@ function geoJsonTo3DMesh(geoJson, baseRadius, color) {
                 return;
               }
 
+              ringIndices.push(vertices.length / 3);
               vertices.push(x, y, z);
             });
 
             // Create the geometry and set the vertices
             const geometry = new THREE.BufferGeometry();
-            const indices = [];
-            for (let i = 1; i < vertices.length / 3 - 1; i++) {
-              indices.push(0, i, i + 1);
-            }
+
+            // Use Earcut to triangulate the polygon
+            const indices = earcut(vertices, null, 3);
 
             geometry.setAttribute(
               "position",
@@ -61,8 +63,8 @@ function geoJsonTo3DMesh(geoJson, baseRadius, color) {
             const material = new THREE.MeshBasicMaterial({
               color,
               side: THREE.DoubleSide,
-              // transparent: true,
-              // opacity: 0.6, // Adjust opacity if needed
+              transparent: true,
+              opacity: 0.6, // Adjust opacity if needed
             });
             const mesh = new THREE.Mesh(geometry, material);
 
