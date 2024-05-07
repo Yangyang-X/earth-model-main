@@ -19,7 +19,7 @@ function createMarker() {
 
 // function to find positon on model
 function findPosition(lat, lng) {
-  const R = 200;
+  const R = 240;
   var phi = ((90 - lat) * Math.PI) / 180;
   var theta = ((180 + lng) * Math.PI) / 180;
 
@@ -56,6 +56,7 @@ function markLocation(lat, lng, earth) {
 
   // finding position
   const position = findPosition(lat, lng);
+  console.log('find position:', lat, lng, position)
 
   // setting marker position
   marker.position.x = position.x;

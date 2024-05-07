@@ -10,6 +10,8 @@ import { Resizer } from "./systems/resizer.js";
 import { Loop } from "./systems/animationLoop.js";
 import { createControls } from "./systems/cameraControls.js";
 import { highlightPolygon } from "./systems/highlightRegion.js";
+import { markLocation } from "./systems/locationFinder.js";
+
 
 let loop;
 let controls;
@@ -19,8 +21,8 @@ class World {
   constructor(container) {
     this.camera = createCamera(container);
     this.scene = createScene();
-    this.earth = createEarth();
-    this.earthRadius = this.earth.earthRadius;
+    this.earthRadius = 100;
+    this.earth = createEarth(this.earthRadius, 32);
     this.renderer = createRenderer();
     container.append(this.renderer.domElement);
 
@@ -41,28 +43,18 @@ class World {
     loop = new Loop(this.camera, this.scene, this.renderer);
     loop.updatables.push(this.earth);
 
-    
-
-    // const countryMesh = geoJsonToMesh(geoJsonCountryData, 200, "yellow");
-    // this.earth.add(countryMesh);
-
-    // // Example rotation to a specific location
-    // this.highlightCountry(29, 108); // Latitude, Longitude
   }
 
-  highlightCountry(lat, lng) {
-    const phi = (90 - lat) * (Math.PI / 180); // Polar angle
-    const theta = (lng + 180) * (Math.PI / 180); // Azimuthal angle
-
-    // Adjust Earth rotation for longitude (Y-axis)
-    this.earth.rotation.y = theta;
-    // Adjust Earth rotation for latitude (X-axis)
-    this.earth.rotation.x = -phi;
+  findLocation(lat, lng) {
+    const marker = markLocation(lat, lng, this.earth);
+    this.earth.add(marker);
   }
 
   highlightRegion(geoJsonCountryData) {
-    console.log('highlight region')
+    console.log('highlight region', this.earthRadius)
     highlightPolygon(geoJsonCountryData, this.earth, this.earthRadius)
+
+   
   }
 
 
@@ -72,6 +64,8 @@ class World {
 
   start() {
     loop.start();
+
+
   }
 
   stop() {

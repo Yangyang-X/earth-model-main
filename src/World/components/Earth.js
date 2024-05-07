@@ -5,13 +5,13 @@ const textureLoader = new THREE.TextureLoader();
 function createMaterial() {
   const material = new THREE.MeshPhongMaterial();
 
-  // earth map
+  // Earth map
   const earthMap = textureLoader.load(
     "/src/World/assets/textures/earth/earth_map.jpg"
   );
   material.map = earthMap;
 
-  // Optionally, include the bump and specular maps if you want
+  // Optionally include bump and specular maps if needed
   // const earthBump = textureLoader.load(
   //   "/src/World/assets/textures/earth/earth_bump.jpg"
   // );
@@ -27,11 +27,12 @@ function createMaterial() {
   return material;
 }
 
-function createEarth() {
-  const geometry = new THREE.SphereGeometry(200, 32, 32);
+function createEarth(radius = 100, segments = 32) {
+  const geometry = new THREE.SphereGeometry(radius, segments, segments);
   const material = createMaterial();
   const earth = new THREE.Mesh(geometry, material);
 
+  // Rotation speed can be adjusted as needed
   earth.tick = (delta) => {
     earth.rotation.y += (1 / 28) * delta;
   };
