@@ -1,10 +1,9 @@
 import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
-import earcut from "https://cdn.jsdelivr.net/npm/earcut@2.2.4/+esm";
 
 // Array to keep track of previous highlighted polygons
 const previousPolygons = [];
 
-// Function to convert GeoJSON to 3D polygon meshes using Earcut
+// Function to convert GeoJSON to 3D polygon meshes without Earcut
 function geoJsonTo3DMesh(geoJson, baseRadius, color) {
   if (!geoJson || !geoJson.features) {
     console.error("Invalid GeoJSON data:", geoJson);
@@ -18,7 +17,6 @@ function geoJsonTo3DMesh(geoJson, baseRadius, color) {
       feature.geometry.coordinates.forEach((polygon, polyIndex) => {
         polygon.forEach((ring, ringIndex) => {
           const vertices = [];
-          const ringIndices = [];
 
           if (ring && Array.isArray(ring)) {
             // Ensure the polygon is closed by repeating the first coordinate pair
@@ -33,7 +31,7 @@ function geoJsonTo3DMesh(geoJson, baseRadius, color) {
                 return;
               }
 
-              const [x, y, z] = findPosition(lat, lng, baseRadius * 1.01);
+              const [x, y, z] = findPosition(lat, lng, baseRadius * 1.0);
 
               if (isNaN(x) || isNaN(y) || isNaN(z)) {
                 console.error(
@@ -43,33 +41,26 @@ function geoJsonTo3DMesh(geoJson, baseRadius, color) {
                 return;
               }
 
-              ringIndices.push(vertices.length / 3);
               vertices.push(x, y, z);
             });
 
             // Create the geometry and set the vertices
             const geometry = new THREE.BufferGeometry();
-
-            // Use Earcut to triangulate the polygon
-            const indices = earcut(vertices, null, 3);
-
             geometry.setAttribute(
               "position",
               new THREE.Float32BufferAttribute(vertices, 3)
             );
-            geometry.setIndex(indices);
-            geometry.computeVertexNormals();
 
-            const material = new THREE.MeshBasicMaterial({
+            // Creating a Line Loop
+            const lineMaterial = new THREE.LineBasicMaterial({
               color,
-              side: THREE.DoubleSide,
               transparent: true,
-              opacity: 0.6, // Adjust opacity if needed
+              opacity: 0.9, // Adjust opacity if needed
             });
-            const mesh = new THREE.Mesh(geometry, material);
+            const polygonLine = new THREE.LineLoop(geometry, lineMaterial);
 
-            previousPolygons.push(mesh.uuid);
-            meshes.push(mesh);
+            previousPolygons.push(polygonLine.uuid);
+            meshes.push(polygonLine);
           } else {
             console.error(
               `Invalid ring format at feature index ${featureIndex}, polygon index ${polyIndex}, ring index ${ringIndex}`,
