@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Model</title>
+    <link rel="stylesheet" href="./styles/main.css" type="text/css">
 
     <!-- favicon -->
-    <link rel="icon" href="./assets/fav.png" />
+    <link rel="icon" href="./assets/fav.png">
 
-    <title>Earth Model</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/"
+            }
+        }
+    </script>
+</head>
 
-    <!-- c=CSS file -->
-    <link rel="stylesheet" href="./styles/main.css" type="text/css" />
-  </head>
+<body>
+    <div id="scene-container">
+        <div id="head-bar">
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="head-bar-content">
+                <div id="chances-flags">
+                    <img class="chance-flag" src="./assets/flag.svg" alt="Chance 1">
+                    <img class="chance-flag" src="./assets/flag.svg" alt="Chance 2">
+                    <img class="chance-flag" src="./assets/flag.svg" alt="Chance 3">
+                </div>
+                <span id="score-text">Score: 0</span>
+                <span id="question-number"></span>
+            </div>
+        </div>
+    </div>
+    <div id="input-container">
+        <input type="text" id="answer-input" placeholder="Enter country name">
+        <button id="submit-button"><img src="./assets/send.svg" height="24" width="24" /></button>
+    </div>
 
-  <body>
-    <!-- scene container -->
-    <div id="scene-container"></div>
-
-    <!-- script -->
+    <span id="result-text"></span>
+    <audio id="correct-sound" src="./assets/sounds/correct.mp3"></audio>
+    <audio id="wrong-sound" src="./assets/sounds/wrong.mp3"></audio>
+    <audio id="complete-sound" src="./assets/sounds/complete.mp3"></audio>
     <script type="module" src="./src/main.js"></script>
-  </body>
+</body>
+
 </html>

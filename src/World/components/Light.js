@@ -1,4 +1,4 @@
-import { DirectionalLight, AmbientLight } from "https://unpkg.com/three@0.127.0/build/three.module.js";
+import { DirectionalLight, AmbientLight }  from 'three';
 
 const createLight = () => {
   // Increase ambient light intensity to create a "full light everywhere" effect
