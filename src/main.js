@@ -2,12 +2,7 @@
 import { World } from "./World/World.js";
 import { countries } from "./countries.js";
 
-// Select 20 random countries without duplicates
-const sessionCountries = [...countries]
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 20);
-
-// Initialize the current country index, chances, and score
+let sessionCountries = [];
 let currentCountryIndex = 0;
 let chancesUsed = 0;
 const maxChances = 3;
@@ -105,9 +100,47 @@ function nextCountry(world) {
     if (currentCountryIndex < sessionCountries.length) {
         loadAndDisplayCountry(world, currentCountryIndex);
     } else {
+        const scoreText = document.querySelector("#score-text");
+        scoreText.innerHTML = `${score}`;
+
         showResultText(`Game over`, true);
+        showGameOverDialog();
+
         playSound("#complete-sound");
     }
+}
+
+// Function to show the game over dialog
+function showGameOverDialog() {
+    const dialog = document.querySelector("#game-over-dialog");
+    const finalScore = document.querySelector("#final-score");
+    finalScore.textContent = `Final Score: ${score} out of ${sessionCountries.length}`;
+    dialog.style.display = "block";
+}
+
+// Function to hide the game over dialog
+function hideGameOverDialog() {
+    const dialog = document.querySelector("#game-over-dialog");
+    dialog.style.display = "none";
+}
+
+function startSession(world) {
+    sessionCountries = [...countries]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 20);
+
+    currentCountryIndex = 0;
+    chancesUsed = 0;
+    score = 0;
+
+    // Hide start button and game over dialog
+    document.querySelector("#start-button").style.display = "none";
+    hideGameOverDialog();
+
+    // Show input container
+    document.querySelector("#input-container").style.display = "flex";
+
+    loadAndDisplayCountry(world, currentCountryIndex);
 }
 
 // Main function to start the world and handle the game logic
@@ -116,8 +149,14 @@ function main() {
     const world = new World(container);
     world.start();
 
-    // Load the first country
-    loadAndDisplayCountry(world, currentCountryIndex);
+
+    const startButton = document.querySelector("#start-button");
+    startButton.addEventListener("click", () => startSession(world));
+
+    // Add event listener for the new game button
+    const newGameButton = document.querySelector("#new-game-button");
+    newGameButton.addEventListener("click", () => startSession(world));
+
 
     // Answer checking and switching logic
     const answerInput = document.querySelector("#answer-input");
@@ -129,14 +168,13 @@ function main() {
         const currentCountry = sessionCountries[currentCountryIndex];
 
         if (answer === currentCountry.name.toLowerCase()) {
-            console.log("Correct!");
             showResultText("Correct!", true);
             playSound("#correct-sound");
             score++;
             setTimeout(() => {
                 nextCountry(world);
                 answerInput.value = "";
-            }, 1500);
+            }, 1200);
         } else {
             handleWrongAnswer(world, answerInput, currentCountry);
         }

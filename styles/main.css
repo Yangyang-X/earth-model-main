@@ -125,6 +125,50 @@ button:hover {
   color: #ddd;
 }
 
+#start-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 48px;
+  width: 160px;
+  border: none;
+  border-radius: 6px;
+  background-color: #06f56a;
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#game-over-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+  width: 280px;
+  height: 280px;
+}
+
+#final-score {
+  font-size: 24px;
+  margin: 24px;
+}
+
+#new-game-button {
+  width: 80%;
+  margin: 24px;
+  height: 48px;
+  font-size: 18px;
+  color: black;
+}
+
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }

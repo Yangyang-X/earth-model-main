@@ -38,12 +38,25 @@
             </div>
         </div>
     </div>
-    <div id="input-container">
+
+    <!-- Start button -->
+    <button id="start-button">Start</button>
+
+    <!-- Input container -->
+    <div id="input-container" style="display: none;">
         <input type="text" id="answer-input" placeholder="Enter country name">
         <button id="submit-button"><img src="./assets/send.svg" height="24" width="24" /></button>
     </div>
 
     <span id="result-text"></span>
+
+    <!-- Game Over Dialog -->
+    <div id="game-over-dialog" style="display: none;">
+        <h2 style="color: antiquewhite;">Game Over!</h2>
+        <p id="final-score"></p>
+        <button id="new-game-button">Start New Game</button>
+    </div>
+
     <audio id="correct-sound" src="./assets/sounds/correct.mp3"></audio>
     <audio id="wrong-sound" src="./assets/sounds/wrong.mp3"></audio>
     <audio id="complete-sound" src="./assets/sounds/complete.mp3"></audio>

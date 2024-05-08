@@ -98,20 +98,20 @@ class World {
       azimuthalRotation
     );
 
-    // Determine z-axis rotation to adjust tilting
-    const zRotation = -targetDirection.y;
+    // // Determine z-axis rotation to adjust tilting
+    // const zRotation = -targetDirection.y;
 
-    const zQuaternion = new THREE.Quaternion().setFromAxisAngle(
-      new THREE.Vector3(0, 0, 1), // Rotate around z-axis
-      zRotation
-    );
+    // const zQuaternion = new THREE.Quaternion().setFromAxisAngle(
+    //   new THREE.Vector3(0, 0, 1), // Rotate around z-axis
+    //   zRotation
+    // );
 
-    // Combine all rotations
-    const combinedRotation = azimuthalQuaternion.multiply(zQuaternion);
+    // // Combine all rotations
+    // const combinedRotation = azimuthalQuaternion.multiply(zQuaternion);
 
     // Apply the rotation to the Earth using a smooth animation
     const initialRotation = this.earth.quaternion.clone();
-    const targetRotation = initialRotation.clone().multiply(combinedRotation);
+    const targetRotation = initialRotation.clone().multiply(azimuthalQuaternion);
 
     let t = 0;
     const duration = 1.5; // Duration of the animation in seconds
