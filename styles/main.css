@@ -30,6 +30,7 @@ body {
   transition: bottom 0.2s ease-in-out; /* Smooth transition */
 }
 
+
 input[type="text"] {
   width: 200px;
   padding: 10px;

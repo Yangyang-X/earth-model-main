@@ -7,6 +7,7 @@ let currentCountryIndex = 0;
 let chancesUsed = 0;
 const maxChances = 3;
 let score = 0;
+const sessionCountryCount = 10; //TODO update me:20
 
 // Function to load and display a specific country
 function loadAndDisplayCountry(world, index) {
@@ -106,9 +107,13 @@ function nextCountry(world) {
         showResultText(`Game over`, true);
         showGameOverDialog();
 
+        cancelKeyboardFocus();
+        hideInputContainer();
+
         playSound("#complete-sound");
     }
 }
+
 
 // Function to show the game over dialog
 function showGameOverDialog() {
@@ -124,10 +129,30 @@ function hideGameOverDialog() {
     dialog.style.display = "none";
 }
 
+function cancelKeyboardFocus() {
+    const answerInput = document.querySelector("#answer-input");
+    answerInput.blur(); // Remove focus
+}
+
+function hideInputContainer() {
+    const inputContainer = document.querySelector("#input-container");
+    inputContainer.style.display = "none";
+}
+
+// Function to show the input container
+function showInputContainer() {
+    const inputContainer = document.querySelector("#input-container");
+    inputContainer.style.display = "flex";
+}
+
+
+
+
+
 function startSession(world) {
     sessionCountries = [...countries]
         .sort(() => 0.5 - Math.random())
-        .slice(0, 20);
+        .slice(0, sessionCountryCount);
 
     currentCountryIndex = 0;
     chancesUsed = 0;
@@ -136,9 +161,7 @@ function startSession(world) {
     // Hide start button and game over dialog
     document.querySelector("#start-button").style.display = "none";
     hideGameOverDialog();
-
-    // Show input container
-    document.querySelector("#input-container").style.display = "flex";
+    showInputContainer();
 
     loadAndDisplayCountry(world, currentCountryIndex);
 }
