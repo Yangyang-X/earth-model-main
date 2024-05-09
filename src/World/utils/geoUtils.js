@@ -1,5 +1,19 @@
 // Calculate the centroid of a GeoJSON polygon
-export function calculatePolygonCentroid(polygon) {
+export function calculatePolygonCentroid(geometry) {
+
+    let polygon;
+    switch (geometry.type) {
+      case "Polygon":
+        polygon = geometry.coordinates;
+        break;
+      case "MultiPolygon":
+        polygon = geometry.coordinates[0];
+        break;
+      default:
+        console.error(`Unsupported geometry type for centroid calculation: ${geometry.type}`);
+        return { lat: 0, lng: 0 };
+    }
+
     let totalLat = 0;
     let totalLng = 0;
     let count = 0;

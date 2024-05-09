@@ -62,9 +62,8 @@ class World {
     setTimeout(() => {
       this.earth.scale.set(1, 1, 1);
       highlightPolygons(geoJsonCountryData, this.earth, this.earthRadius, style, elevation);
-
       const firstFeature = geoJsonCountryData.features[0];
-      const centroid = calculatePolygonCentroid(firstFeature.geometry.coordinates[0]);
+      const centroid = calculatePolygonCentroid(firstFeature.geometry);
 
       const [x, y, z] = latLngTo3DPosition(centroid.lat, centroid.lng, this.earthRadius);
       const targetPosition = new THREE.Vector3(x, y, z);

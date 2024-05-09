@@ -123,36 +123,50 @@ function geoJsonTo3DLines(geoJson, radius = DEFAULT_RADIUS) {
   return lines;
 }
 
-// Function to convert GeoJSON polygons to a single 3D pin using THREE.js
+// Function to convert GeoJSON polygons and multipolygons to a single 3D pin using THREE.js
 function geoJsonToSingle3DPin(geoJson, radius = DEFAULT_RADIUS) {
   if (!geoJson || !geoJson.features) {
     console.error("Invalid GeoJSON data:", geoJson);
     return [];
   }
-
   const pins = [];
   const firstFeature = geoJson.features[0];
 
   if (firstFeature && firstFeature.geometry && firstFeature.geometry.coordinates) {
-    // Take the first polygon of the first feature
-    const firstPolygon = firstFeature.geometry.coordinates[0];
+    // Function to calculate the centroid of a polygon
+    const calculateCentroid = (coordinates) => {
+      let totalLng = 0;
+      let totalLat = 0;
+      let count = 0;
 
-    // Calculate the centroid of the polygon
-    let totalLng = 0;
-    let totalLat = 0;
-    let count = 0;
-
-    firstPolygon.forEach((ring) => {
-      ring.forEach(([lng, lat]) => {
-        totalLng += lng;
-        totalLat += lat;
-        count++;
+      coordinates.forEach((ring) => {
+        ring.forEach(([lng, lat]) => {
+          totalLng += lng;
+          totalLat += lat;
+          count++;
+        });
       });
-    });
 
-    const centroidLng = totalLng / count;
-    const centroidLat = totalLat / count;
+      return [totalLat / count, totalLng / count];
+    };
 
+    // Extract coordinates based on geometry type
+    let centroidLatLng;
+    if (firstFeature.geometry.type === 'Polygon') {
+      // Take the first polygon of the first feature
+      const firstPolygon = firstFeature.geometry.coordinates;
+      centroidLatLng = calculateCentroid(firstPolygon);
+    } else if (firstFeature.geometry.type === 'MultiPolygon') {
+      // Take the first polygon of the first feature
+      const firstPolygon = firstFeature.geometry.coordinates[0];
+      centroidLatLng = calculateCentroid(firstPolygon);
+    } else {
+      console.error(`Unsupported geometry type:`, firstFeature.geometry.type);
+      return [];
+    }
+
+    // Convert the centroid to 3D coordinates
+    const [centroidLat, centroidLng] = centroidLatLng;
     const [x, y, z] = latLngTo3DPosition(centroidLat, centroidLng, radius);
 
     // Create a custom pin
