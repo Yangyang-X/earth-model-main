@@ -119,7 +119,7 @@ function nextCountry(world) {
 function showGameOverDialog() {
     const dialog = document.querySelector("#game-over-dialog");
     const finalScore = document.querySelector("#final-score");
-    finalScore.textContent = `Final Score: ${score} out of ${sessionCountries.length}`;
+    finalScore.textContent = `Score: ${score}/${sessionCountries.length}`;
     dialog.style.display = "block";
 }
 

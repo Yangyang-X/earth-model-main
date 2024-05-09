@@ -161,7 +161,8 @@ button:hover {
 
 #final-score {
   font-size: 24px;
-  margin: 24px;
+  margin-top: 32px;
+  margin-bottom: 24px;
 }
 
 #new-game-button {

@@ -56,12 +56,12 @@ class World {
     this.highlightRegion(geoJsonData, style);
   }
 
-  highlightRegion(geoJsonCountryData, style = "pin") {
+  highlightRegion(geoJsonCountryData, style = "pin", elevation = 1.0) {
     removePreviousGeometries(this.earth);
 
     setTimeout(() => {
       this.earth.scale.set(1, 1, 1);
-      highlightPolygons(geoJsonCountryData, this.earth, this.earthRadius, style);
+      highlightPolygons(geoJsonCountryData, this.earth, this.earthRadius, style, elevation);
 
       const firstFeature = geoJsonCountryData.features[0];
       const centroid = calculatePolygonCentroid(firstFeature.geometry.coordinates[0]);

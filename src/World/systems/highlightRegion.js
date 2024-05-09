@@ -215,25 +215,25 @@ function removePreviousGeometries(earth) {
 }
 
 // Function to highlight a region with different styles
-function highlightPolygons(geoJson, earth, radius = DEFAULT_RADIUS, style = "mesh") {
-    // Resize the Earth to the initial radius if zoomed
-    earth.scale.set(1, 1, 1);
+function highlightPolygons(geoJson, earth, radius = DEFAULT_RADIUS, style = "mesh", elevation = 1.0) {
+  // Resize the Earth to the initial radius if zoomed
+  earth.scale.set(1, 1, 1);
 
-    // Highlight new polygons after a delay
-    let polygonMeshes = [];
+  // Highlight new polygons after a delay
+  let polygonMeshes = [];
 
-    if (style === "mesh") {
-      polygonMeshes = geoJsonTo3DMesh(geoJson, radius);
-    } else if (style === "lines") {
-      polygonMeshes = geoJsonTo3DLines(geoJson, radius);
-    } else if (style === "pin") {
-      polygonMeshes = geoJsonToSingle3DPin(geoJson, radius);
-    }
+  if (style === "mesh") {
+    polygonMeshes = geoJsonTo3DMesh(geoJson, radius * elevation);
+  } else if (style === "lines") {
+    polygonMeshes = geoJsonTo3DLines(geoJson, radius * elevation);
+  } else if (style === "pin") {
+    polygonMeshes = geoJsonToSingle3DPin(geoJson, radius * elevation);
+  }
 
-    // Add polygon meshes to the Earth
-    polygonMeshes.forEach((geometry) => {
-      earth.add(geometry);
-    });
+  // Add polygon meshes to the Earth
+  polygonMeshes.forEach((geometry) => {
+    earth.add(geometry);
+  });
 
 }
 
