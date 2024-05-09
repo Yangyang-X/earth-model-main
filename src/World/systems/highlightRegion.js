@@ -19,7 +19,21 @@ function geoJsonTo3DMesh(geoJson, radius = DEFAULT_RADIUS) {
 
   geoJson.features.forEach((feature, featureIndex) => {
     if (feature.geometry && feature.geometry.coordinates) {
-      feature.geometry.coordinates.forEach((polygon, polyIndex) => {
+      const coordinates = feature.geometry.coordinates;
+      const geometryType = feature.geometry.type;
+
+      let polygons = [];
+
+      if (geometryType === "Polygon") {
+        polygons = [coordinates];
+      } else if (geometryType === "MultiPolygon") {
+        polygons = coordinates;
+      } else {
+        console.error(`Unsupported geometry type: ${geometryType}`);
+        return;
+      }
+
+      polygons.forEach((polygon, polyIndex) => {
         // Flatten the polygon data for Earcut
         const data = earcut.flatten(polygon);
         const { vertices, holes, dimensions } = data;
