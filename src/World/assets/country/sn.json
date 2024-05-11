@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Senegal",
-        "ISO_A2": "SN"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Paraguay",
-        "ISO_A2": "PY"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

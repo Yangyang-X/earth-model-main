@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Slovenia",
-        "ISO_A2": "SI"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

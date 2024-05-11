@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Bosnia and Herz.",
-        "ISO_A2": "BA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

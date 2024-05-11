@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Djibouti",
-        "ISO_A2": "DJ"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

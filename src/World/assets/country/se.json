@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Sweden",
-        "ISO_A2": "SE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

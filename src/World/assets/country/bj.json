@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Benin",
-        "ISO_A2": "BJ"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

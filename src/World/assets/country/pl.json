@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Poland",
-        "ISO_A2": "PL"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

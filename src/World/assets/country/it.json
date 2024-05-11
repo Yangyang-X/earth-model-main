@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Italy",
-        "ISO_A2": "IT"
-      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [

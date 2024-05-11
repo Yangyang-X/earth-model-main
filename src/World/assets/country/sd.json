@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Sudan",
-        "ISO_A2": "SD"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

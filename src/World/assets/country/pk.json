@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Pakistan",
-        "ISO_A2": "PK"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

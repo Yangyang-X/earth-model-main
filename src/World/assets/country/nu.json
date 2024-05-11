@@ -1,8 +1,50 @@
 {
-"type": "FeatureCollection",
-"name": "NU",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "featurecla": "Admin-0 country", "scalerank": 3, "LABELRANK": 4, "SOVEREIGNT": "New Zealand", "SOV_A3": "NZ1", "ADM0_DIF": 1, "LEVEL": 2, "TYPE": "Dependency", "TLC": "1", "ADMIN": "Niue", "ADM0_A3": "NIU", "GEOU_DIF": 0, "GEOUNIT": "Niue", "GU_A3": "NIU", "SU_DIF": 0, "SUBUNIT": "Niue", "SU_A3": "NIU", "BRK_DIFF": 0, "NAME": "Niue", "NAME_LONG": "Niue", "BRK_A3": "NIU", "BRK_NAME": "Niue", "BRK_GROUP": null, "ABBREV": "Niue", "POSTAL": "NU", "FORMAL_EN": null, "FORMAL_FR": null, "NAME_CIAWF": "Niue", "NOTE_ADM0": "Assoc. with N.Z.", "NOTE_BRK": "Assoc. with N.Z.", "NAME_SORT": "Niue", "NAME_ALT": null, "MAPCOLOR7": 3, "MAPCOLOR8": 3, "MAPCOLOR9": 4, "MAPCOLOR13": 4, "POP_EST": 1620.0, "POP_RANK": 3, "POP_YEAR": 2018, "GDP_MD": 10, "GDP_YEAR": 2003, "ECONOMY": "6. Developing region", "INCOME_GRP": "3. Upper middle income", "FIPS_10": "NE", "ISO_A2": "NU", "ISO_A2_EH": "NU", "ISO_A3": "NIU", "ISO_A3_EH": "NIU", "ISO_N3": "570", "ISO_N3_EH": "570", "UN_A3": "570", "WB_A2": "-99", "WB_A3": "-99", "WOE_ID": 23424904, "WOE_ID_EH": 23424904, "WOE_NOTE": "Exact WOE match as country", "ADM0_ISO": "NIU", "ADM0_DIFF": null, "ADM0_A3_UN": -99, "ADM0_A3_WB": -99, "CONTINENT": "Oceania", "REGION_UN": "Oceania", "SUBREGION": "Polynesia", "REGION_WB": "East Asia & Pacific", "NAME_LEN": 4, "LONG_LEN": 4, "ABBREV_LEN": 4, "TINY": 3, "HOMEPART": -99, "MIN_ZOOM": 0.0, "MIN_LABEL": 4.0, "MAX_LABEL": 9.0, "LABEL_X": -169.862565, "LABEL_Y": -19.045956, "WIKIDATAID": "Q34020", "NAME_AR": "نييوي", "NAME_BN": "নিউয়ে", "NAME_DE": "Niue", "NAME_EN": "Niue", "NAME_ES": "Niue", "NAME_FA": "نیووی", "NAME_FR": "Niue", "NAME_EL": "Νιούε", "NAME_HE": "ניואה", "NAME_HI": "निउए", "NAME_HU": "Niue", "NAME_ID": "Niue", "NAME_IT": "Niue", "NAME_JA": "ニウエ", "NAME_KO": "니우에", "NAME_NL": "Niue", "NAME_PL": "Niue", "NAME_PT": "Niue", "NAME_RU": "Ниуэ", "NAME_SV": "Niue", "NAME_TR": "Niue", "NAME_UK": "Ніуе", "NAME_UR": "نیووے", "NAME_VI": "Niue", "NAME_ZH": "纽埃", "NAME_ZHT": "紐埃", "FCLASS_ISO": "Admin-0 dependency", "TLC_DIFF": null, "FCLASS_TLC": "Admin-0 dependency" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -169.803417968750011, -19.0830078125 ], [ -169.90380859375, -19.137890625000011 ], [ -169.948339843750006, -19.072851562500006 ], [ -169.908740234374989, -18.990234375 ], [ -169.861572265625, -18.968652343750009 ], [ -169.834033203124989, -18.966015625000011 ], [ -169.793408203125011, -19.042578125 ], [ -169.803417968750011, -19.0830078125 ] ] ] ] } }
-]
+  "type": "FeatureCollection",
+  "name": "NU",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -169.80341796875,
+                -19.0830078125
+              ],
+              [
+                -169.90380859375,
+                -19.13789062500001
+              ],
+              [
+                -169.94833984375,
+                -19.072851562500006
+              ],
+              [
+                -169.908740234375,
+                -18.990234375
+              ],
+              [
+                -169.861572265625,
+                -18.96865234375001
+              ],
+              [
+                -169.834033203125,
+                -18.96601562500001
+              ],
+              [
+                -169.793408203125,
+                -19.042578125
+              ],
+              [
+                -169.80341796875,
+                -19.0830078125
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
 }

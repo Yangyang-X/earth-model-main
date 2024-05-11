@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Portugal",
-        "ISO_A2": "PT"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

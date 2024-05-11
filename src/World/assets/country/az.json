@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Azerbaijan",
-        "ISO_A2": "AZ"
-      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Qatar",
-        "ISO_A2": "QA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

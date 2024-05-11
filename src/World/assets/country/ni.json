@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Nicaragua",
-        "ISO_A2": "NI"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

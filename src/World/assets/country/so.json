@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Somalia",
-        "ISO_A2": "SO"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

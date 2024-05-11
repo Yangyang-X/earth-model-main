@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Romania",
-        "ISO_A2": "RO"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

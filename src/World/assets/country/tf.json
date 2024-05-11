@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Fr. S. Antarctic Lands",
-        "ISO_A2": "TF"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

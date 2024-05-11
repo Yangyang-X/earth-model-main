@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Afghanistan",
-        "ISO_A2": "AF"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

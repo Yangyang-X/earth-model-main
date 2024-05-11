@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "South Africa",
-        "ISO_A2": "ZA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

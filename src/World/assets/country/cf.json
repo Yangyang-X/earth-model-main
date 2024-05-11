@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Central African Rep.",
-        "ISO_A2": "CF"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Japan",
-        "ISO_A2": "JP"
-      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [

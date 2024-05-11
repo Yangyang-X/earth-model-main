@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Kazakhstan",
-        "ISO_A2": "KZ"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Venezuela",
-        "ISO_A2": "VE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

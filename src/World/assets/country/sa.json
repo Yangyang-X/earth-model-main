@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Saudi Arabia",
-        "ISO_A2": "SA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

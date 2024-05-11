@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Kenya",
-        "ISO_A2": "KE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

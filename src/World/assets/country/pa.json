@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Panama",
-        "ISO_A2": "PA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

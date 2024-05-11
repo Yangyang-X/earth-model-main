@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Cameroon",
-        "ISO_A2": "CM"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

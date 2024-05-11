@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Rwanda",
-        "ISO_A2": "RW"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

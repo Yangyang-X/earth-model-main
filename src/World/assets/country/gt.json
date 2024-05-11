@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Guatemala",
-        "ISO_A2": "GT"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Ukraine",
-        "ISO_A2": "UA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

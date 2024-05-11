@@ -1,8 +1,58 @@
 {
-"type": "FeatureCollection",
-"name": "AW",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "featurecla": "Admin-0 country", "scalerank": 3, "LABELRANK": 5, "SOVEREIGNT": "Netherlands", "SOV_A3": "NL1", "ADM0_DIF": 1, "LEVEL": 2, "TYPE": "Country", "TLC": "1", "ADMIN": "Aruba", "ADM0_A3": "ABW", "GEOU_DIF": 0, "GEOUNIT": "Aruba", "GU_A3": "ABW", "SU_DIF": 0, "SUBUNIT": "Aruba", "SU_A3": "ABW", "BRK_DIFF": 0, "NAME": "Aruba", "NAME_LONG": "Aruba", "BRK_A3": "ABW", "BRK_NAME": "Aruba", "BRK_GROUP": null, "ABBREV": "Aruba", "POSTAL": "AW", "FORMAL_EN": "Aruba", "FORMAL_FR": null, "NAME_CIAWF": "Aruba", "NOTE_ADM0": "Neth.", "NOTE_BRK": null, "NAME_SORT": "Aruba", "NAME_ALT": null, "MAPCOLOR7": 4, "MAPCOLOR8": 2, "MAPCOLOR9": 2, "MAPCOLOR13": 9, "POP_EST": 106314.0, "POP_RANK": 9, "POP_YEAR": 2019, "GDP_MD": 3056, "GDP_YEAR": 2017, "ECONOMY": "6. Developing region", "INCOME_GRP": "2. High income: nonOECD", "FIPS_10": "AA", "ISO_A2": "AW", "ISO_A2_EH": "AW", "ISO_A3": "ABW", "ISO_A3_EH": "ABW", "ISO_N3": "533", "ISO_N3_EH": "533", "UN_A3": "533", "WB_A2": "AW", "WB_A3": "ABW", "WOE_ID": 23424736, "WOE_ID_EH": 23424736, "WOE_NOTE": "Exact WOE match as country", "ADM0_ISO": "ABW", "ADM0_DIFF": null, "ADM0_A3_UN": -99, "ADM0_A3_WB": -99, "CONTINENT": "North America", "REGION_UN": "Americas", "SUBREGION": "Caribbean", "REGION_WB": "Latin America & Caribbean", "NAME_LEN": 5, "LONG_LEN": 5, "ABBREV_LEN": 5, "TINY": 4, "HOMEPART": -99, "MIN_ZOOM": 0.0, "MIN_LABEL": 5.0, "MAX_LABEL": 10.0, "LABEL_X": -69.972795, "LABEL_Y": 12.5174, "WIKIDATAID": "Q21203", "NAME_AR": "أروبا", "NAME_BN": "আরুবা", "NAME_DE": "Aruba", "NAME_EN": "Aruba", "NAME_ES": "Aruba", "NAME_FA": "آروبا", "NAME_FR": "Aruba", "NAME_EL": "Αρούμπα", "NAME_HE": "ארובה", "NAME_HI": "अरूबा", "NAME_HU": "Aruba", "NAME_ID": "Aruba", "NAME_IT": "Aruba", "NAME_JA": "アルバ", "NAME_KO": "아루바", "NAME_NL": "Aruba", "NAME_PL": "Aruba", "NAME_PT": "Aruba", "NAME_RU": "Аруба", "NAME_SV": "Aruba", "NAME_TR": "Aruba", "NAME_UK": "Аруба", "NAME_UR": "اروبا", "NAME_VI": "Aruba", "NAME_ZH": "阿鲁巴", "NAME_ZHT": "阿魯巴", "FCLASS_ISO": "Admin-0 dependency", "TLC_DIFF": null, "FCLASS_TLC": "Admin-0 dependency" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -69.899121093749997, 12.452001953124991 ], [ -69.895703125, 12.422998046874994 ], [ -69.942187499999989, 12.438525390624989 ], [ -70.004150390625, 12.50048828125 ], [ -70.066113281249997, 12.546972656249991 ], [ -70.050878906249991, 12.597070312499994 ], [ -70.035107421874997, 12.614111328124991 ], [ -69.97314453125, 12.567626953125 ], [ -69.911816406249997, 12.48046875 ], [ -69.899121093749997, 12.452001953124991 ] ] ] ] } }
-]
+  "type": "FeatureCollection",
+  "name": "AW",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -69.89912109375,
+                12.452001953124991
+              ],
+              [
+                -69.895703125,
+                12.422998046874994
+              ],
+              [
+                -69.94218749999999,
+                12.438525390624989
+              ],
+              [
+                -70.004150390625,
+                12.50048828125
+              ],
+              [
+                -70.06611328125,
+                12.546972656249991
+              ],
+              [
+                -70.05087890624999,
+                12.597070312499994
+              ],
+              [
+                -70.035107421875,
+                12.614111328124991
+              ],
+              [
+                -69.97314453125,
+                12.567626953125
+              ],
+              [
+                -69.91181640625,
+                12.48046875
+              ],
+              [
+                -69.89912109375,
+                12.452001953124991
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
 }

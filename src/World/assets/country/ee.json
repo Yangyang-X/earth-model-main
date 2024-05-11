@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Estonia",
-        "ISO_A2": "EE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

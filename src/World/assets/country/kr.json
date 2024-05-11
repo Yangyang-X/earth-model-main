@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "South Korea",
-        "ISO_A2": "KR"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

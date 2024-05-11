@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Zimbabwe",
-        "ISO_A2": "ZW"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

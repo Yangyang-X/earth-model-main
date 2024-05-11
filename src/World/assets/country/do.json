@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Dominican Rep.",
-        "ISO_A2": "DO"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

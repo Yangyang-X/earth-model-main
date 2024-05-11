@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Ethiopia",
-        "ISO_A2": "ET"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "eSwatini",
-        "ISO_A2": "SZ"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

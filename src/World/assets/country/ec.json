@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Ecuador",
-        "ISO_A2": "EC"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

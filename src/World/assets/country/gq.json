@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Eq. Guinea",
-        "ISO_A2": "GQ"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

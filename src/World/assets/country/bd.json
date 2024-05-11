@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Bangladesh",
-        "ISO_A2": "BD"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

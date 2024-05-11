@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Cyprus",
-        "ISO_A2": "CY"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

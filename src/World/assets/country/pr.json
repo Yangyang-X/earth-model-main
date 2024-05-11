@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Puerto Rico",
-        "ISO_A2": "PR"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

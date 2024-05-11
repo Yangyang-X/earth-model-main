@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Libya",
-        "ISO_A2": "LY"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

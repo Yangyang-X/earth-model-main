@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Nigeria",
-        "ISO_A2": "NG"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

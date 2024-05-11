@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Luxembourg",
-        "ISO_A2": "LU"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

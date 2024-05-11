@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Turkmenistan",
-        "ISO_A2": "TM"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

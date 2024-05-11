@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Iceland",
-        "ISO_A2": "IS"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

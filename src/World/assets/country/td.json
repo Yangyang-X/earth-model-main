@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Chad",
-        "ISO_A2": "TD"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

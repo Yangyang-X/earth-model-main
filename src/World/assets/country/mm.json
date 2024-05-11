@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Myanmar",
-        "ISO_A2": "MM"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

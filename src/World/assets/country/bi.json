@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Burundi",
-        "ISO_A2": "BI"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

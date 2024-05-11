@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "C\u00f4te d'Ivoire",
-        "ISO_A2": "CI"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

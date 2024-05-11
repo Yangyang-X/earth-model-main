@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Thailand",
-        "ISO_A2": "TH"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

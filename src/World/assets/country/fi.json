@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Finland",
-        "ISO_A2": "FI"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Mauritania",
-        "ISO_A2": "MR"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

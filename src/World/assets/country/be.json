@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Belgium",
-        "ISO_A2": "BE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Liberia",
-        "ISO_A2": "LR"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Uzbekistan",
-        "ISO_A2": "UZ"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

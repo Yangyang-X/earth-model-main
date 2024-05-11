@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Eritrea",
-        "ISO_A2": "ER"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

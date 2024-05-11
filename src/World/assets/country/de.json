@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Germany",
-        "ISO_A2": "DE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

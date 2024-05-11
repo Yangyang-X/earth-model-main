@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Denmark",
-        "ISO_A2": "DK"
-      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [

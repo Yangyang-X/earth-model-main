@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "New Caledonia",
-        "ISO_A2": "NC"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

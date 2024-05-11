@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Oman",
-        "ISO_A2": "OM"
-      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [

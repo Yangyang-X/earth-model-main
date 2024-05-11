@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Latvia",
-        "ISO_A2": "LV"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

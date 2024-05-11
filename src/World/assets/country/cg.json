@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Congo",
-        "ISO_A2": "CG"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

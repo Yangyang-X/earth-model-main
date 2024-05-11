@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Niger",
-        "ISO_A2": "NE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

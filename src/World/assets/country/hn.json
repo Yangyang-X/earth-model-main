@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Honduras",
-        "ISO_A2": "HN"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

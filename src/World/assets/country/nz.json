@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "New Zealand",
-        "ISO_A2": "NZ"
-      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [

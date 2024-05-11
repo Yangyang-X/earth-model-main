@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "United Arab Emirates",
-        "ISO_A2": "AE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

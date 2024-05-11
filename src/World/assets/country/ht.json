@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Haiti",
-        "ISO_A2": "HT"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

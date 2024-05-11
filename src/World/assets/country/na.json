@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Namibia",
-        "ISO_A2": "NA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

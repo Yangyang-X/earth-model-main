@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Ghana",
-        "ISO_A2": "GH"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

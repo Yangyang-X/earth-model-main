@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Czechia",
-        "ISO_A2": "CZ"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

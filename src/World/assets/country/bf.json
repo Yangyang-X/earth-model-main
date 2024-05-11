@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Burkina Faso",
-        "ISO_A2": "BF"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

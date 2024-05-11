@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Georgia",
-        "ISO_A2": "GE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

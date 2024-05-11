@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Sri Lanka",
-        "ISO_A2": "LK"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Uruguay",
-        "ISO_A2": "UY"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

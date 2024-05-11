@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Slovakia",
-        "ISO_A2": "SK"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

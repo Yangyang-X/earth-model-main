@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Gabon",
-        "ISO_A2": "GA"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

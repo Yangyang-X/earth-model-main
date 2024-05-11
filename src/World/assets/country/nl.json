@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Netherlands",
-        "ISO_A2": "NL"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

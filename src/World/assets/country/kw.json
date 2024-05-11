@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Kuwait",
-        "ISO_A2": "KW"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

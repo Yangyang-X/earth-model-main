@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Kyrgyzstan",
-        "ISO_A2": "KG"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

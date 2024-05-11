@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Lesotho",
-        "ISO_A2": "LS"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

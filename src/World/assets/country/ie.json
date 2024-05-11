@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Ireland",
-        "ISO_A2": "IE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

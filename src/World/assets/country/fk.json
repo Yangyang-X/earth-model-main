@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Falkland Is.",
-        "ISO_A2": "FK"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

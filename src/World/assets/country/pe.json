@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Peru",
-        "ISO_A2": "PE"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

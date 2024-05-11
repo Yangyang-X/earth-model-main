@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Greenland",
-        "ISO_A2": "GL"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

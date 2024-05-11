@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Brazil",
-        "ISO_A2": "BR"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

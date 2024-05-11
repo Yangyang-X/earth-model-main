@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Togo",
-        "ISO_A2": "TG"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

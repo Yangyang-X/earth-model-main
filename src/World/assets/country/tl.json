@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Timor-Leste",
-        "ISO_A2": "TL"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

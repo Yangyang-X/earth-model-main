@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "India",
-        "ISO_A2": "IN"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

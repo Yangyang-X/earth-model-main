@@ -1,34 +1,31 @@
 {
   "type": "FeatureCollection",
   "name": "Bouvet Island",
-  "crs": {
-    "type": "name",
-    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
-  },
   "id": "BV",
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "featurecla": "Admin-0 country",
-        "scalerank": 1,
-        "LABELRANK": 4,
-        "SOVEREIGNT": "Norway",
-        "SOV_A3": "BWA",
-        "ADM0_DIF": 0,
-        "LEVEL": 2,
-        "TLC": "1",
-        "ADMIN": "Norway"
-      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
           [
             [
-              [3.36, -54.46],
-              [3.37, -54.4],
-              [3.48, -54.4],
-              [3.36, -54.46]
+              [
+                3.36,
+                -54.46
+              ],
+              [
+                3.37,
+                -54.4
+              ],
+              [
+                3.48,
+                -54.4
+              ],
+              [
+                3.36,
+                -54.46
+              ]
             ]
           ]
         ]

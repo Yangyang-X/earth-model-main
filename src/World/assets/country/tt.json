@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Trinidad and Tobago",
-        "ISO_A2": "TT"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Switzerland",
-        "ISO_A2": "CH"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Mali",
-        "ISO_A2": "ML"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

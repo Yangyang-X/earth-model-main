@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Lithuania",
-        "ISO_A2": "LT"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

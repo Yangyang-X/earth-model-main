@@ -3,10 +3,6 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "NAME": "Costa Rica",
-        "ISO_A2": "CR"
-      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
