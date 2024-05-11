@@ -8,78 +8,81 @@ const DEFAULT_COLOR = 'red';
 
 var previousGeometries = [];
 
-// Function to convert GeoJSON polygons to 3D meshes using THREE.js and Earcut
-function geoJsonTo3DMesh(geoJson, radius = DEFAULT_RADIUS) {
+async function geoJsonTo3DMesh(geoJson, radius = DEFAULT_RADIUS) {
   if (!geoJson || !geoJson.features) {
-    console.error("Invalid GeoJSON data:", geoJson);
-    return [];
+      console.error("Invalid GeoJSON data:", geoJson);
+      return [];
   }
 
   const meshes = [];
 
-  geoJson.features.forEach((feature, featureIndex) => {
-    if (feature.geometry && feature.geometry.coordinates) {
-      const coordinates = feature.geometry.coordinates;
-      const geometryType = feature.geometry.type;
+  for (const feature of geoJson.features) {
+      if (feature.geometry && feature.geometry.coordinates) {
+          const geometryType = feature.geometry.type;
+          let polygons = [];
 
-      let polygons = [];
+          if (geometryType === "Polygon") {
+              polygons = [feature.geometry.coordinates];
+          } else if (geometryType === "MultiPolygon") {
+              polygons = feature.geometry.coordinates;
+          } else {
+              console.error(`Unsupported geometry type: ${geometryType}`);
+              continue;
+          }
 
-      if (geometryType === "Polygon") {
-        polygons = [coordinates];
-      } else if (geometryType === "MultiPolygon") {
-        polygons = coordinates;
+          for (const polygonCoords of polygons) {
+              // Create a polygon using Turf.js
+              const polygon = turf.polygon(polygonCoords);
+
+              // Define the grid's extent and cell size
+              const bbox = turf.bbox(polygon);
+              const cellSide = 100.0; // size of the grid cell
+              const squareGrid = turf.squareGrid(bbox, cellSide, {units: 'kilometers'});
+
+              // Clip the polygon with each cell in the grid
+              const clippedPolygons = squareGrid.features.map(cell => turf.intersect(cell, polygon)).filter(Boolean);
+
+              for (const clipped of clippedPolygons) {
+                  // Flatten the polygon data for Earcut
+                  const data = earcut.flatten(clipped.geometry.coordinates);
+                  const { vertices, holes, dimensions } = data;
+
+                  // Triangulate the polygon using Earcut
+                  const indices = earcut(vertices, holes, dimensions);
+
+                  // Convert vertices to 3D coordinates on the sphere
+                  const vertices3D = [];
+                  for (let i = 0; i < vertices.length; i += dimensions) {
+                      const lat = vertices[i + 1];
+                      const lng = vertices[i];
+                      const [x, y, z] = latLngTo3DPosition(lat, lng, radius);
+                      vertices3D.push(x, y, z);
+                  }
+
+                  // Create the geometry and set the vertices
+                  const geometry = new THREE.BufferGeometry();
+                  geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices3D, 3));
+                  geometry.setIndex(indices);
+                  geometry.computeVertexNormals();
+
+                  const material = new THREE.MeshBasicMaterial({
+                      color: DEFAULT_COLOR,
+                      side: THREE.DoubleSide,
+                  });
+
+                  const mesh = new THREE.Mesh(geometry, material);
+                  previousGeometries.push(mesh.uuid);
+                  meshes.push(mesh);
+              }
+          }
       } else {
-        console.error(`Unsupported geometry type: ${geometryType}`);
-        return;
+          console.error(`Feature does not have a valid geometry:`, feature);
       }
-
-      polygons.forEach((polygon, polyIndex) => {
-        // Flatten the polygon data for Earcut
-        const data = earcut.flatten(polygon);
-        const { vertices, holes, dimensions } = data;
-
-        // Triangulate the polygon using Earcut
-        const indices = earcut(vertices, holes, dimensions);
-
-        // Verify the correctness of triangulation
-        const deviation = earcut.deviation(vertices, holes, dimensions, indices);
-        if (deviation !== 0) {
-          console.warn(
-            `Triangulation deviation detected at feature index ${featureIndex}, polygon index ${polyIndex}, deviation: ${deviation}`
-          );
-        }
-
-        // Convert vertices to 3D coordinates on the sphere
-        const vertices3D = [];
-        for (let i = 0; i < vertices.length; i += dimensions) {
-          const lat = vertices[i + 1];
-          const lng = vertices[i];
-          const [x, y, z] = latLngTo3DPosition(lat, lng, radius);
-          vertices3D.push(x, y, z);
-        }
-
-        // Create the geometry and set the vertices
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices3D, 3));
-        geometry.setIndex(indices);
-        geometry.computeVertexNormals();
-
-        const material = new THREE.MeshBasicMaterial({
-          color: DEFAULT_COLOR,
-          side: THREE.DoubleSide,
-        });
-
-        const mesh = new THREE.Mesh(geometry, material);
-        previousGeometries.push(mesh.uuid);
-        meshes.push(mesh);
-      });
-    } else {
-      console.error(`Feature does not have a valid geometry:`, feature);
-    }
-  });
+  }
 
   return meshes;
 }
+
 
 // Function to convert GeoJSON polygons to 3D lines using THREE.js
 function geoJsonTo3DLines(geoJson, radius = DEFAULT_RADIUS) {
@@ -243,7 +246,7 @@ function removePreviousGeometries(earth) {
 }
 
 // Function to highlight a region with different styles
-function highlightPolygons(geoJson, earth, radius = DEFAULT_RADIUS, style = "mesh", elevation = 1.0) {
+async function highlightPolygons(geoJson, earth, radius = DEFAULT_RADIUS, style = "mesh", elevation = 1.0) {
   // Resize the Earth to the initial radius if zoomed
   earth.scale.set(1, 1, 1);
 
@@ -251,7 +254,7 @@ function highlightPolygons(geoJson, earth, radius = DEFAULT_RADIUS, style = "mes
   let polygonMeshes = [];
 
   if (style === "mesh") {
-    polygonMeshes = geoJsonTo3DMesh(geoJson, radius * elevation);
+    polygonMeshes = await geoJsonTo3DMesh(geoJson, radius * elevation);
   } else if (style === "lines") {
     polygonMeshes = geoJsonTo3DLines(geoJson, radius * elevation);
   } else if (style === "pin") {

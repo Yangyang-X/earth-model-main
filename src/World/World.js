@@ -87,117 +87,6 @@ class World {
     }, 200);
   }
 
-  getZone(lat) {
-    if (lat >= 50) {
-      return 3;
-    } else if (lat >= 40) {
-      return 2;
-    } else if (lat >= 30) {
-      return 1;
-    } else if (lat <= -50) {
-      return -3;
-    } else if (lat <= -40) {
-      return -2;
-    } else if (lat <= -30) {
-      return -1;
-    } else {
-      return 0;
-    }
-  }
-
-  determinePolarRotation = (initialLat, targetLat) => {
-    const initialZone = this.getZone(initialLat);
-    const targetZone = this.getZone(targetLat);
-
-    if (initialZone == targetZone) {
-      return 0; // North to North
-    }
-
-    if (initialZone == 3) {
-      if (targetZone == 2) {
-        return THREE.MathUtils.degToRad(-10); // North 50 to North 40
-      } else if (targetZone == 1) {
-        return THREE.MathUtils.degToRad(-20); // North 50 to North 40
-      } else if (targetZone == 0) {
-        return THREE.MathUtils.degToRad(-50); // North 50 to North 40
-      } else if (targetZone == -1) {
-        return THREE.MathUtils.degToRad(-80); // North 50 to North 40
-      } else if (targetZone == -2) {
-        return THREE.MathUtils.degToRad(-90); // North 50 to North 40
-      }
-    }
-
-    if (initialZone == 2) {
-      if (targetZone == 3) {
-        return THREE.MathUtils.degToRad(10); // North 50 to North 40
-      } else if (targetZone == 1) {
-        return THREE.MathUtils.degToRad(-10); // North 50 to North 40
-      } else if (targetZone == 0) {
-        return THREE.MathUtils.degToRad(-40); // North 50 to North 40
-      } else if (targetZone == -1) {
-        return THREE.MathUtils.degToRad(-70); // North 50 to North 40
-      } else if (targetZone == -2) {
-        return THREE.MathUtils.degToRad(-80); // North 50 to North 40
-      }
-    }
-
-    if (initialZone == 1) {
-      if (targetZone == 3) {
-        return THREE.MathUtils.degToRad(20); // North 50 to North 40
-      } else if (targetZone == 2) {
-        return THREE.MathUtils.degToRad(10); // North 50 to North 40
-      } else if (targetZone == 0) {
-        return THREE.MathUtils.degToRad(-30); // North 50 to North 40
-      } else if (targetZone == -1) {
-        return THREE.MathUtils.degToRad(-60); // North 50 to North 40
-      } else if (targetZone == -2) {
-        return THREE.MathUtils.degToRad(-70); // North 50 to North 40
-      }
-    }
-
-    if (initialZone == 0) {
-      if (targetZone == 3) {
-        return THREE.MathUtils.degToRad(50); // North 50 to North 40
-      } else if (targetZone == 2) {
-        return THREE.MathUtils.degToRad(40); // North 50 to North 40
-      } else if (targetZone == 1) {
-        return THREE.MathUtils.degToRad(30); // North 50 to North 40
-      } else if (targetZone == -1) {
-        return THREE.MathUtils.degToRad(-30); // North 50 to North 40
-      } else if (targetZone == -2) {
-        return THREE.MathUtils.degToRad(-40); // North 50 to North 40
-      }
-    }
-
-    if (initialZone == -1) {
-      if (targetZone == 3) {
-        return THREE.MathUtils.degToRad(80); // North 50 to North 40
-      } else if (targetZone == 2) {
-        return THREE.MathUtils.degToRad(70); // North 50 to North 40
-      } else if (targetZone == 1) {
-        return THREE.MathUtils.degToRad(60); // North 50 to North 40
-      } else if (targetZone == 0) {
-        return THREE.MathUtils.degToRad(30); // North 50 to North 40
-      } else if (targetZone == -2) {
-        return THREE.MathUtils.degToRad(-10); // North 50 to North 40
-      }
-    }
-
-    if (initialZone == -2) {
-      if (targetZone == 3) {
-        return THREE.MathUtils.degToRad(90); // North 50 to North 40
-      } else if (targetZone == 2) {
-        return THREE.MathUtils.degToRad(80); // North 50 to North 40
-      } else if (targetZone == 1) {
-        return THREE.MathUtils.degToRad(70); // North 50 to North 40
-      } else if (targetZone == 0) {
-        return THREE.MathUtils.degToRad(40); // North 50 to North 40
-      } else if (targetZone == -2) {
-        return THREE.MathUtils.degToRad(10); // North 50 to North 40
-      }
-    }
-  };
-
   rotateGlobeTo(targetLatLng, onComplete) {
     const initialLatLng = this.previousTargetLatLng;
 
@@ -231,28 +120,24 @@ class World {
   }
 
   animateRotation(finalRotation, onComplete) {
-    const duration = 2000;  // Duration of the animation in milliseconds
+    let duration = 800;  
     const startTime = Date.now();
-    const startRotation = this.earth.quaternion.clone();  // Clone the current rotation
+
+    const startRotation = this.earth.quaternion.clone();  // Clone the initial quaternion
 
     const animate = () => {
         const currentTime = Date.now();
         const fraction = (currentTime - startTime) / duration;
-        const quaternion = new THREE.Quaternion()
+
         if (fraction < 1) {
-            // Interpolating the quaternion
-            quaternion.slerp(
-                startRotation,
-                finalRotation,
-                this.earth.quaternion,
-                fraction
-            );
+            // Update the quaternion by interpolating between the start and the target
+            this.earth.quaternion.copy(startRotation).slerp(finalRotation, fraction);
             requestAnimationFrame(animate);
         } else {
-            // Ensuring the rotation ends exactly at the target orientation
+            // Make sure we end precisely at the final rotation
             this.earth.quaternion.copy(finalRotation);
             if (typeof onComplete === 'function') {
-                onComplete();
+                onComplete();  // Call the completion callback if provided
             }
         }
     };
