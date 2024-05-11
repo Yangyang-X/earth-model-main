@@ -31,48 +31,32 @@ async function geoJsonTo3DMesh(geoJson, radius = DEFAULT_RADIUS) {
           }
 
           for (const polygonCoords of polygons) {
-              // Create a polygon using Turf.js
+              // Calculate the area of the polygon to decide the processing method
               const polygon = turf.polygon(polygonCoords);
+              const area = turf.area(polygon);  // Area in square meters
 
-              // Define the grid's extent and cell size
-              const bbox = turf.bbox(polygon);
-              const cellSide = 100.0; // size of the grid cell
-              const squareGrid = turf.squareGrid(bbox, cellSide, {units: 'kilometers'});
-
-              // Clip the polygon with each cell in the grid
-              const clippedPolygons = squareGrid.features.map(cell => turf.intersect(cell, polygon)).filter(Boolean);
-
-              for (const clipped of clippedPolygons) {
-                  // Flatten the polygon data for Earcut
-                  const data = earcut.flatten(clipped.geometry.coordinates);
+              if (area <= 300000) {  // Use Earcut directly for smaller areas
+                  const data = earcut.flatten(polygonCoords);
                   const { vertices, holes, dimensions } = data;
-
-                  // Triangulate the polygon using Earcut
                   const indices = earcut(vertices, holes, dimensions);
-
-                  // Convert vertices to 3D coordinates on the sphere
-                  const vertices3D = [];
-                  for (let i = 0; i < vertices.length; i += dimensions) {
-                      const lat = vertices[i + 1];
-                      const lng = vertices[i];
-                      const [x, y, z] = latLngTo3DPosition(lat, lng, radius);
-                      vertices3D.push(x, y, z);
-                  }
-
-                  // Create the geometry and set the vertices
-                  const geometry = new THREE.BufferGeometry();
-                  geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices3D, 3));
-                  geometry.setIndex(indices);
-                  geometry.computeVertexNormals();
-
-                  const material = new THREE.MeshBasicMaterial({
-                      color: DEFAULT_COLOR,
-                      side: THREE.DoubleSide,
-                  });
-
-                  const mesh = new THREE.Mesh(geometry, material);
-                  previousGeometries.push(mesh.uuid);
+                  // Convert and create mesh
+                  const mesh = createMesh(vertices, indices, dimensions, radius);
                   meshes.push(mesh);
+              } else {  // Use grid splitting for larger areas
+                  const bbox = turf.bbox(polygon);
+                  const cellSide = 50.0; // size of the grid cell in kilometers
+                  const squareGrid = turf.squareGrid(bbox, cellSide, {units: 'kilometers'});
+                  const clippedPolygons = squareGrid.features.map(cell => turf.intersect(cell, polygon)).filter(Boolean);
+
+                  for (const clipped of clippedPolygons) {
+                      const data = earcut.flatten(clipped.geometry.coordinates);
+                      const { vertices, holes, dimensions } = data;
+                      const indices = earcut(vertices, holes, dimensions);
+                      // Convert and create mesh
+                      const mesh = createMesh(vertices, indices, dimensions, radius);
+                      previousGeometries.push(mesh.uuid);
+                      meshes.push(mesh);
+                  }
               }
           }
       } else {
@@ -83,6 +67,24 @@ async function geoJsonTo3DMesh(geoJson, radius = DEFAULT_RADIUS) {
   return meshes;
 }
 
+function createMesh(vertices, indices, dimensions, radius) {
+    const vertices3D = [];
+    for (let i = 0; i < vertices.length; i += dimensions) {
+        const lat = vertices[i + 1];
+        const lng = vertices[i];
+        const [x, y, z] = latLngTo3DPosition(lat, lng, radius);
+        vertices3D.push(x, y, z);
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices3D, 3));
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
+    const material = new THREE.MeshBasicMaterial({
+        color: DEFAULT_COLOR,
+        side: THREE.DoubleSide,
+    });
+    return new THREE.Mesh(geometry, material);
+}
 
 // Function to convert GeoJSON polygons to 3D lines using THREE.js
 function geoJsonTo3DLines(geoJson, radius = DEFAULT_RADIUS) {
