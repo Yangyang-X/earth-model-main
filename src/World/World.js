@@ -1,8 +1,8 @@
 import * as THREE from "three";
-import { createCamera } from "./components/Camera.js";
-import { createEarth } from "./components/Earth.js";
-import { createScene } from "./components/Scene.js";
-import { createLight } from "./components/Light.js";
+import { createCamera } from "./components/camera.js";
+import { createEarth } from "./components/earth.js";
+import { createScene } from "./components/scene.js"
+import { createLight } from "./components/light.js";
 import { createRenderer } from "./systems/renderer.js";
 import { Resizer } from "./systems/resizer.js";
 import { createControls } from "./systems/cameraControls.js";

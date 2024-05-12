@@ -1,5 +1,5 @@
 // Import the World class
-import { World } from "./World/World.js";
+import { World } from "./world/world.js";
 import { countries } from "./countries.js";
 
 let sessionCountries = [];

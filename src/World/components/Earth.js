@@ -7,7 +7,7 @@ function createMaterial() {
 
   // Earth map
   const earthMap = textureLoader.load(
-    "/src/World/assets/textures/earth/earth_map.jpg"
+    "/src/world/assets/textures/earth/earth_map.jpg"
   );
   material.map = earthMap;
 
