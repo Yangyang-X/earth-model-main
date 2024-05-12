@@ -32,15 +32,16 @@ body {
 
 
 input[type="text"] {
-  width: 200px;
+  width: 240px;
   padding: 10px;
   margin-right: 6px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 button {
-  height: 40px;
+  height: 44px;
   width: 48px;
   border: none;
   border-radius: 6px;

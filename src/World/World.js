@@ -70,7 +70,7 @@ class World {
   }
 
   async showCountry(countryCca2, style, meshMethod) {
-    const geoJsonPath = `/src/world/assets/country/${countryCca2}.json`;
+    const geoJsonPath = `./src/world/assets/country/${countryCca2}.json`;
     const geoJsonData = await this.fetchGeoJson(geoJsonPath);
 
     removePreviousGeometries(this.earth);
