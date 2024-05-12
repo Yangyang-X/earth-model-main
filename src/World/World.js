@@ -69,7 +69,7 @@ class World {
     }
   }
 
-  async showCountry(countryCca2, style = "pin") {
+  async showCountry(countryCca2, style, meshMethod) {
     const geoJsonPath = `/src/World/assets/country/${countryCca2}.json`;
     const geoJsonData = await this.fetchGeoJson(geoJsonPath);
 
@@ -79,6 +79,8 @@ class World {
       this.earth.scale.set(1, 1, 1);
       const firstFeature = geoJsonData.features[0];
       const centroid = calculatePolygonCentroid(firstFeature.geometry);
+      // console.log('centroid:', centroid, meshMethod)
+      geoJsonData['meshMethod'] = meshMethod
       const targetLatLng = { lat: centroid.lat, lng: centroid.lng };
 
       this.rotateGlobeTo(targetLatLng, () => {

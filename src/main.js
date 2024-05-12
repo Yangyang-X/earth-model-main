@@ -7,12 +7,13 @@ let currentCountryIndex = 0;
 let chancesUsed = 0;
 const maxChances = 3;
 let score = 0;
-const sessionCountryCount = 10; //TODO update me:20
+const sessionCountryCount = 20; //TODO update me:20
 
 // Function to load and display a specific country
 function loadAndDisplayCountry(world, index) {
   const country = sessionCountries[index];
-  world.showCountry(country.cca2, country.style, index == 0);
+  console.log(country)
+  world.showCountry(country.cca2, country.style, country.meshMethod, index == 0);
 
   // Update the progress bar
   updateProgressBar(index + 1, sessionCountries.length);
@@ -147,32 +148,43 @@ function showInputContainer() {
 function startSession(world) {
   world.resetPosition();
   sessionCountries = [...countries]
-      .sort(() => 0.5 - Math.random())
-      .slice(0, sessionCountryCount);
-
-//   sessionCountries = [
-//     { cca2: "no", name: "Norway", style: "mesh", elevation: "1.02" },
-
-//     { cca2: "it", name: "Italy", style: "mesh", elevation: "1.02" },
-//     { cca2: "jm", name: "Jamaica", style: "mesh", elevation: "1.0" },
-//     { cca2: "cn", name: "China", style: "mesh", elevation: "1.02" },
-
-//     { cca2: "ru", name: "Russia", style: "mesh", elevation: "1.02" },
-
-
-//     { cca2: "ar", name: "Argentina", style: "mesh", elevation: "1.0" },
-
-//     { cca2: "jp", name: "Japan", style: "mesh", elevation: "1.02" },
-
-//     // { cca2: "kz", name: "Kazakhstan", style: "mesh", elevation: "1.04" },
-//     { cca2: "jo", name: "Jordan", style: "mesh", elevation: "1.0" },
-//     { cca2: "ke", name: "Kenya", style: "mesh", elevation: "1.03" },
-//     { cca2: "kw", name: "Kuwait", style: "mesh", elevation: "1.0" },
-//     { cca2: "kg", name: "Kyrgyzstan", style: "mesh", elevation: "1.0" },
-//     { cca2: "la", name: "Laos", style: "mesh", elevation: "1.01" },
-//     { cca2: "lv", name: "Latvia", style: "mesh", elevation: "1.0" },
-//     { cca2: "lb", name: "Lebanon", style: "mesh", elevation: "1.0" },
-//   ];
+    .sort(() => 0.5 - Math.random())
+    .slice(0, sessionCountryCount);
+  /*
+    sessionCountries = [
+      { cca2: "ca", name: "Canada", style: "mesh",  elevation: "1.02" },//todo fixme
+  
+  
+      { cca2: "nz", name: "New zealand", style: "mesh", meshMethod: "turf", elevation: "1.02" },
+      { cca2: "cu", name: "Cuba", style: "mesh",meshMethod: "turf", elevation: "1.0" },
+      { cca2: "cn", name: "China", style: "mesh", elevation: "1.02" },
+      { cca2: "us", name: "United States", style: "mesh", elevation: "1.02" },
+  
+  
+      { cca2: "ru", name: "Russia", style: "mesh", elevation: "1.02" },
+      { cca2: "au", name: "Australia", style: "mesh", elevation: "1.0" },
+  
+  
+      { cca2: "ar", name: "Argentina", style: "mesh", elevation: "1.0" },
+  
+      { cca2: "jp", name: "Japan", style: "mesh", elevation: "1.02" },
+  
+      { cca2: "kz", name: "Kazakhstan", style: "mesh", elevation: "1.04" },
+      { cca2: "br", name: "Brazil", style: "mesh", elevation: "1.04" },
+      { cca2: "ca", name: "Canada", style: "mesh", elevation: "1.04" },
+      { cca2: "in", name: "India", style: "mesh", elevation: "1.04" },
+  
+  
+  
+  
+      { cca2: "jo", name: "Jordan", style: "mesh", elevation: "1.0" },
+      { cca2: "ke", name: "Kenya", style: "mesh", elevation: "1.03" },
+      { cca2: "kw", name: "Kuwait", style: "mesh", elevation: "1.0" },
+      { cca2: "kg", name: "Kyrgyzstan", style: "mesh", elevation: "1.0" },
+      { cca2: "la", name: "Laos", style: "mesh", elevation: "1.01" },
+      { cca2: "lv", name: "Latvia", style: "mesh", elevation: "1.0" },
+      { cca2: "lb", name: "Lebanon", style: "mesh", elevation: "1.0" },
+    ]; */
 
   currentCountryIndex = 0;
   chancesUsed = 0;
